@@ -1,3 +1,4 @@
+import path from "path";
 import core from "@actions/core";
 import github from "@actions/github";
 

@@ -8562,21 +8562,24 @@ var __webpack_exports__ = {};
 (() => {
 "use strict";
 __nccwpck_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5438);
-/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(5622);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(2186);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(5438);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
 async function run() {
   console.log("Holla!");
 
-  const GITHUB_TOKEN = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput("GITHUB_TOKEN");
+  const GITHUB_TOKEN = _actions_core__WEBPACK_IMPORTED_MODULE_1___default().getInput("GITHUB_TOKEN");
 
-  const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1___default().getOctokit(GITHUB_TOKEN);
+  const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_2___default().getOctokit(GITHUB_TOKEN);
 
-  const { context = {} } = (_actions_github__WEBPACK_IMPORTED_MODULE_1___default());
+  const { context = {} } = (_actions_github__WEBPACK_IMPORTED_MODULE_2___default());
   const { issue } = context.payload;
 
   await octokit.issues.createComment({
