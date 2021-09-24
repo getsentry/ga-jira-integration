@@ -75268,7 +75268,7 @@ async function run() {
   // });
 
   console.log("--------------------");
-  console.log(issue);
+  console.log(issue.body);
   console.log("--------------------");
 
   try {
@@ -75279,7 +75279,7 @@ async function run() {
           name: core.getInput("JIRA_ISSUE_NAME"),
         },
         project: { key: core.getInput("JIRA_PROJECT_ID") },
-        description: fnTranslate(issue.body),
+        description: fnTranslate(String(issue.body).trim()),
       },
     });
 
