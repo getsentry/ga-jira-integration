@@ -75268,8 +75268,8 @@ async function createIssueInJIRA() {
   }
 
   const descriptionBody = `${issue.body}
-    ---
-    View ${issue.title} on [GitHub](${issue.html_url})
+---
+View ${issue.title} on [GitHub](${issue.html_url})
 
 
   `;
