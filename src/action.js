@@ -2,6 +2,7 @@
 // import github from "@actions/github";
 const core = require("@actions/core");
 const github = require("@actions/github");
+const mdEscape = require("markdown-escape");
 const { Version3Client } = require("jira.js");
 const fnTranslate = require("md-to-adf");
 
@@ -40,7 +41,7 @@ async function run() {
           name: core.getInput("JIRA_ISSUE_NAME"),
         },
         project: { key: core.getInput("JIRA_PROJECT_ID") },
-        description: fnTranslate(String(issue.body).trim()),
+        description: fnTranslate(mdEscape(issue.body)),
       },
     });
 
