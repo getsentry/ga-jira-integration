@@ -75244,6 +75244,13 @@ const github = __nccwpck_require__(95438);
 const { Version3Client } = __nccwpck_require__(74689);
 const fnTranslate = __nccwpck_require__(14708);
 
+const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
+const octokit = github.getOctokit(GITHUB_TOKEN);
+const { issue } = github.context.payload;
+const hasLabel = issue.labels.find(
+  (label) => label.id === core.getInput("TRIGGER_LABEL")
+);
+
 const jiraClient = new Version3Client({
   host: core.getInput("JIRA_API_HOST"),
   authentication: {
@@ -75254,22 +75261,17 @@ const jiraClient = new Version3Client({
   },
 });
 
-async function run() {
-  const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
+async function createIssueInJIRA() {
+  if (!hasLabel) {
+    console.log("No trigger label detected. Skipping...");
+    return;
+  }
 
-  const octokit = github.getOctokit(GITHUB_TOKEN);
+  const descriptionBody = `
+    Github issue: [${issue.title}](${issue.html_url})
 
-  const { issue } = github.context.payload;
-
-  // const { data: issueFromGH } = await octokit.rest.issues.createComment({
-  //   ...context.repo,
-  //   issue_number: issue.number,
-  //   body: "I am so in ACTION!",
-  // });
-
-  console.log("---- ----- ----- ------");
-  console.log(issue);
-  console.log("---- ----- ----- ------");
+    ${issue.body}
+  `;
 
   try {
     const newIssue = await jiraClient.issues.createIssue({
@@ -75279,17 +75281,25 @@ async function run() {
           name: core.getInput("JIRA_ISSUE_NAME"),
         },
         project: { key: core.getInput("JIRA_PROJECT_ID") },
-        description: fnTranslate(issue.body),
+        description: fnTranslate(descriptionBody),
       },
     });
 
-    console.log(newIssue);
+    if (newIssue.id) {
+      const { data: newComment } = await octokit.rest.issues.createComment({
+        ...github.context.repo,
+        issue_number: issue.number,
+        body: core.getInput("after-jira-issue-message"),
+      });
+
+      console.log(newComment);
+    }
   } catch (error) {
     console.error(error);
   }
 }
 
-run();
+createIssueInJIRA();
 
 })();
 
