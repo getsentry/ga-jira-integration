@@ -6,7 +6,7 @@ inputs:
   GITHUB_TOKEN:
     decription: "GitHub token"
     required: true
-  ON_LABEL:
+  TRIGGER_LABEL:
     decription: "GitHub label"
     required: true
   JIRA_ISSUE_NAME:

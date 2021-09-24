@@ -454,11 +454,6 @@ macos-release@^2.5.0:
   resolved "https://registry.yarnpkg.com/macos-release/-/macos-release-2.5.0.tgz#067c2c88b5f3fb3c56a375b2ec93826220fa1ff2"
   integrity sha512-EIgv+QZ9r+814gjJj0Bt5vSLJLzswGmSUbUpbi9AIr/fsN2IWFBl2NucV9PAiek+U1STK468tEkxmVYUtuAN3g==
 
-markdown-escape@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/markdown-escape/-/markdown-escape-1.1.0.tgz#228c932a47af251bb0a2d18d6001a235403777f2"
-  integrity sha512-f1+ARFbzLrBdC0Lj30uREn+zthrK/h1PO5UhN5IMDQvI2lSFn+8U06a5LHaxxYMhHD0mJoJ2BROJ/Sju5aw6+g==
-
 marked@^0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.8.2.tgz#4faad28d26ede351a7a1aaa5fec67915c869e355"

@@ -65438,35 +65438,6 @@ module.exports.default = macosRelease;
 
 /***/ }),
 
-/***/ 35913:
-/***/ ((module) => {
-
-var replacements = [
-  [/\*/g, '\\*', 'asterisks'],
-  [/#/g, '\\#', 'number signs'],
-  [/\//g, '\\/', 'slashes'],
-  [/\(/g, '\\(', 'parentheses'],
-  [/\)/g, '\\)', 'parentheses'],
-  [/\[/g, '\\[', 'square brackets'],
-  [/\]/g, '\\]', 'square brackets'],
-  [/</g, '&lt;', 'angle brackets'],
-  [/>/g, '&gt;', 'angle brackets'],
-  [/_/g, '\\_', 'underscores']
-]
-
-module.exports = function (string, skips) {
-  skips = skips || []
-  return replacements.reduce(function (string, replacement) {
-    var name = replacement[2]
-    return name && skips.indexOf(name) !== -1
-      ? string
-      : string.replace(replacement[0], replacement[1])
-  }, string)
-}
-
-
-/***/ }),
-
 /***/ 14708:
 /***/ ((module) => {
 
@@ -75270,7 +75241,6 @@ var __webpack_exports__ = {};
 // import github from "@actions/github";
 const core = __nccwpck_require__(42186);
 const github = __nccwpck_require__(95438);
-const mdEscape = __nccwpck_require__(35913);
 const { Version3Client } = __nccwpck_require__(74689);
 const fnTranslate = __nccwpck_require__(14708);
 
@@ -75298,7 +75268,7 @@ async function run() {
   // });
 
   console.log("--------------------");
-  const translated = mdEscape(issue.body);
+  const translated = fnTranslate(issue.body);
   console.log(translated);
   console.log("--------------------");
 
