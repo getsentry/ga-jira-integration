@@ -1,12 +1,8 @@
-// import core from "@actions/core";
-// import github from "@actions/github";
 const core = require("@actions/core");
 const github = require("@actions/github");
 const { Version3Client } = require("jira.js");
 const fnTranslate = require("md-to-adf");
 
-const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
-const octokit = github.getOctokit(GITHUB_TOKEN);
 const { issue } = github.context.payload;
 const hasLabel = issue.labels.find(
   (label) => label.name === core.getInput("TRIGGER_LABEL")
@@ -36,7 +32,7 @@ View ${issue.title} on [GitHub](${issue.html_url})
   `;
 
   try {
-    const newIssue = await jiraClient.issues.createIssue({
+    await jiraClient.issues.createIssue({
       fields: {
         summary: issue.title,
         issuetype: {
@@ -46,16 +42,6 @@ View ${issue.title} on [GitHub](${issue.html_url})
         description: fnTranslate(descriptionBody),
       },
     });
-
-    if (newIssue.id) {
-      const { data: newComment } = await octokit.rest.issues.createComment({
-        ...github.context.repo,
-        issue_number: issue.number,
-        body: core.getInput("after-jira-issue-message"),
-      });
-
-      console.log(newComment);
-    }
   } catch (error) {
     console.error(error);
   }

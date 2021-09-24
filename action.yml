@@ -24,9 +24,6 @@ inputs:
   JIRA_PROJECT_ID:
     decription: "JIRA project ID"
     required: true
-  after-jira-issue-message:
-    description: "Comment message used to be commented on the issue after the issue is created in JIRA"
-    required: false
 
 runs:
   using: "node12"
