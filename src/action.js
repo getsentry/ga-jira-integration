@@ -28,27 +28,26 @@ async function run() {
   //   body: "I am so in ACTION!",
   // });
 
-  console.log("--------------------");
-  const translated = fnTranslate(issue.body);
-  console.log(translated);
-  console.log("--------------------");
+  console.log("---- ----- ----- ------");
+  console.log(issue);
+  console.log("---- ----- ----- ------");
 
-  // try {
-  //   const newIssue = await jiraClient.issues.createIssue({
-  //     fields: {
-  //       summary: issue.title,
-  //       issuetype: {
-  //         name: core.getInput("JIRA_ISSUE_NAME"),
-  //       },
-  //       project: { key: core.getInput("JIRA_PROJECT_ID") },
-  //       description: fnTranslate(mdEscape(issue.body)),
-  //     },
-  //   });
+  try {
+    const newIssue = await jiraClient.issues.createIssue({
+      fields: {
+        summary: issue.title,
+        issuetype: {
+          name: core.getInput("JIRA_ISSUE_NAME"),
+        },
+        project: { key: core.getInput("JIRA_PROJECT_ID") },
+        description: fnTranslate(issue.body),
+      },
+    });
 
-  //   console.log(newIssue);
-  // } catch (error) {
-  //   console.error(error);
-  // }
+    console.log(newIssue);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 run();
