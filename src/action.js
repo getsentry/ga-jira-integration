@@ -3,6 +3,7 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const { Version3Client } = require("jira.js");
+const fnTranslate = require("md-to-adf");
 
 const jiraClient = new Version3Client({
   host: core.getInput("JIRA_API_HOST"),
@@ -16,7 +17,7 @@ const jiraClient = new Version3Client({
 
 async function run() {
   const jiraProjectId = core.getInput("JIRA_PROJECT_ID");
-
+  const jiraIssueName = core.getInput("jiraIssueName");
   const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
 
   const octokit = github.getOctokit(GITHUB_TOKEN);
@@ -30,11 +31,20 @@ async function run() {
   //   body: "I am so in ACTION!",
   // });
 
-  // console.log(issueFromGH);
+  console.log(issue);
 
-  const issueMeta = await jiraClient.issues.getCreateIssueMeta({
-    projectIds: [jiraProjectId],
-  });
+  // try {
+  //   const newIssue = await jiraClient.issues.createIssue({
+  //     fields: {
+  //       summary: "Issue from the script",
+  //       issuetype: {
+  //         name: jiraIssueName,
+  //       },
+  //       project: { key: jiraProjectId },
+  //       description: fnTranslate(issue.body),
+  //     },
+  //   });
+  // } catch (error) {}
 
   console.log(issueMeta);
 }

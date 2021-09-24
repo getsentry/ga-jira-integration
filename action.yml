@@ -9,6 +9,9 @@ inputs:
   ON_LABEL:
     decription: "GitHub label"
     required: true
+  JIRA_ISSUE_NAME:
+    decription: "JIRA issue name (Story, Task)"
+    required: true
   JIRA_API_HOST:
     decription: "JIRA API host"
     required: true
@@ -21,6 +24,9 @@ inputs:
   JIRA_PROJECT_ID:
     decription: "JIRA project ID"
     required: true
+  after-jira-issue-message:
+    description: "Comment message used to be commented on the issue after the issue is created in JIRA"
+    required: false
 
 runs:
   using: "node12"

@@ -14,6 +14,7 @@
     "@actions/github": "^5.0.0",
     "@vercel/ncc": "^0.31.1",
     "jira-client": "^6.22.0",
-    "jira.js": "^2.6.3"
+    "jira.js": "^2.6.3",
+    "md-to-adf": "^0.6.4"
   }
 }
