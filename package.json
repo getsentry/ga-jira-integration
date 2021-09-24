@@ -6,7 +6,8 @@
   "author": "Vladan Paunovic <vladan.paunovic.bg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "ncc build src/action.js -o dist"
+    "build": "ncc build src/action.js -o dist",
+    "dev-start": "ncc run dist/index.js"
   },
   "dependencies": {
     "@actions/core": "^1.5.0",
