@@ -5,8 +5,10 @@ on:
     types: [labeled]
 
 jobs:
-  test:
+  createIssue:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

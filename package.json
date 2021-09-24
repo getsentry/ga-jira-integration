@@ -2,6 +2,7 @@
   "name": "ga-jira-integraion",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "git@github.com:vladanpaunovic/ga-jira-integration.git",
   "author": "Vladan Paunovic <vladan.paunovic.bg@gmail.com>",
   "license": "MIT",
@@ -9,6 +10,8 @@
     "build": "ncc build src/action.js -o dist"
   },
   "dependencies": {
+    "@actions/core": "^1.5.0",
+    "@actions/github": "^5.0.0",
     "@vercel/ncc": "^0.31.1",
     "jira-client": "^6.22.0"
   }
