@@ -24,7 +24,7 @@ async function createIssueInJIRA() {
     return;
   }
 
-  const descriptionBody = `View ${issue.title} on [GitHub](${issue.html_url})
+  const descriptionBody = `View **${issue.title}** on [GitHub](${issue.html_url})
 ---
 ${issue.body}
 
