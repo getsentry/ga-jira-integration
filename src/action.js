@@ -30,7 +30,7 @@ async function run() {
   // });
 
   console.log("--------------------");
-  const translated = fnTranslate(mdEscape(issue.body.trim()));
+  const translated = mdEscape(issue.body);
   console.log(translated);
   console.log("--------------------");
 
