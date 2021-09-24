@@ -1,8 +1,8 @@
 name: Test
 
 on:
-  label:
-    types: [created, deleted]
+  issues:
+    types: [labeled]
 
 jobs:
   test:
