@@ -40,7 +40,7 @@ This is a list of parameters used in your `.yml` file. All parameters are requir
 | `JIRA_API_HOST`   | The hostname to connect to JIRA                                                                               | `https://mycompany.atlassian.net` |
 | `JIRA_API_TOKEN`  | This is JIRA User API Token. You can create one [using this page](https://id.atlassian.com/manage/api-tokens) | `TVSeDycuGWVfDjDwRrpPZJVZ`        |
 | `JIRA_EMAIL`      | This is the login/email you're using to connect to JIRA.                                                      | `username@example.com`            |
-| `TRIGGER_LABEL`   | The hostname to connect to JIRA.                                                                              | `Jira`                            |
+| `TRIGGER_LABEL`   | A label used in Github to trigger the issue creation in JIRA                                                  | `Jira`                            |
 | `JIRA_PROJECT_ID` | A project key. This will tell the action in which project in JIRA to synchronize the issues into              | (like `PRO`, `TES`, `INC`...)     |
 | `JIRA_ISSUE_NAME` | This is the name of the issue type, used for storing isues in JIRA                                            | `Story` or `Task`                 |
 
