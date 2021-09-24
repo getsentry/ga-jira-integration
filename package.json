@@ -1,0 +1,15 @@
+{
+  "name": "ga-jira-integraion",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vladanpaunovic/ga-jira-integration.git",
+  "author": "Vladan Paunovic <vladan.paunovic.bg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build src/action.js -o dist"
+  },
+  "dependencies": {
+    "@vercel/ncc": "^0.31.1",
+    "jira-client": "^6.22.0"
+  }
+}

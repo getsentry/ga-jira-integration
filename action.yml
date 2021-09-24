@@ -1,0 +1,24 @@
+name: "GitHub to JIRA integration"
+decription: "Minimalistic JIRA integration for GitHub"
+author: "Vladan Paunovic"
+
+inputs:
+  GITHUB_INPUT:
+    decription: "GitHub token"
+    required: true
+  ON_LABEL:
+    decription: "GitHub label"
+    required: true
+  JIRA_API_TOKEN:
+    decription: "JIRA API token"
+    required: true
+  JIRA_EMAIL:
+    decription: "JIRA user e-mail"
+    required: true
+  JIRA_PROJECT_ID:
+    decription: "JIRA project ID"
+    required: true
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
