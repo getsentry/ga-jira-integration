@@ -8535,11 +8535,13 @@ async function run() {
   const { context = {} } = github;
   const { issue } = context.payload;
 
-  await octokit.issues.createComment({
+  const { data: issueFromGH } = await octokit.rest.issues.createComment({
     ...context.repo,
     issue_number: issue.number,
     body: "I am so in ACTION!",
   });
+
+  console.log(issueFromGH);
 }
 
 run();
