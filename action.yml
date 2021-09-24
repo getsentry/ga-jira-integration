@@ -7,7 +7,7 @@ inputs:
     decription: "GitHub token"
     required: true
   TRIGGER_LABEL:
-    decription: "GitHub label"
+    decription: "GitHub label to trigger the issue creating in JIRA"
     required: true
   JIRA_ISSUE_NAME:
     decription: "JIRA issue name (Story, Task)"

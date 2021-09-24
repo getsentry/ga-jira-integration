@@ -75251,6 +75251,8 @@ const hasLabel = issue.labels.find(
   (label) => label.id === core.getInput("TRIGGER_LABEL")
 );
 
+console.log(hasLabel, core.getInput("TRIGGER_LABEL"), issue.labels, issue);
+
 const jiraClient = new Version3Client({
   host: core.getInput("JIRA_API_HOST"),
   authentication: {
