@@ -3,7 +3,7 @@ decription: "Minimalistic JIRA integration for GitHub"
 author: "Vladan Paunovic"
 
 inputs:
-  GITHUB_INPUT:
+  GITHUB_TOKEN:
     decription: "GitHub token"
     required: true
   ON_LABEL:

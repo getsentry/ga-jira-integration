@@ -2,7 +2,6 @@
   "name": "ga-jira-integraion",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "repository": "git@github.com:vladanpaunovic/ga-jira-integration.git",
   "author": "Vladan Paunovic <vladan.paunovic.bg@gmail.com>",
   "license": "MIT",
