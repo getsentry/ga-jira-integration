@@ -75298,25 +75298,26 @@ async function run() {
   // });
 
   console.log("--------------------");
-  console.log(fnTranslate(mdEscape(issue.body)));
+  const translated = fnTranslate(mdEscape(issue.body.trim()));
+  console.log(translated);
   console.log("--------------------");
 
-  try {
-    const newIssue = await jiraClient.issues.createIssue({
-      fields: {
-        summary: issue.title,
-        issuetype: {
-          name: core.getInput("JIRA_ISSUE_NAME"),
-        },
-        project: { key: core.getInput("JIRA_PROJECT_ID") },
-        description: fnTranslate(mdEscape(issue.body)),
-      },
-    });
+  // try {
+  //   const newIssue = await jiraClient.issues.createIssue({
+  //     fields: {
+  //       summary: issue.title,
+  //       issuetype: {
+  //         name: core.getInput("JIRA_ISSUE_NAME"),
+  //       },
+  //       project: { key: core.getInput("JIRA_PROJECT_ID") },
+  //       description: fnTranslate(mdEscape(issue.body)),
+  //     },
+  //   });
 
-    console.log(newIssue);
-  } catch (error) {
-    console.error(error);
-  }
+  //   console.log(newIssue);
+  // } catch (error) {
+  //   console.error(error);
+  // }
 }
 
 run();
