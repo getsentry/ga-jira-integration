@@ -75267,10 +75267,9 @@ async function createIssueInJIRA() {
     return;
   }
 
-  const descriptionBody = `
+  const descriptionBody = `${issue.body}
+    ---
     Github issue: [${issue.title}](${issue.html_url})
-
-    ${issue.body}
   `;
 
   try {
