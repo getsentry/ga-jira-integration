@@ -16,14 +16,11 @@ const jiraClient = new Version3Client({
 });
 
 async function run() {
-  const jiraProjectId = core.getInput("JIRA_PROJECT_ID");
-  const jiraIssueName = core.getInput("jiraIssueName");
   const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
 
   const octokit = github.getOctokit(GITHUB_TOKEN);
 
-  const { context = {} } = github;
-  const { issue } = context.payload;
+  const { issue } = github.context.payload;
 
   // const { data: issueFromGH } = await octokit.rest.issues.createComment({
   //   ...context.repo,
@@ -31,20 +28,26 @@ async function run() {
   //   body: "I am so in ACTION!",
   // });
 
+  console.log("--------------------");
   console.log(issue);
+  console.log("--------------------");
 
-  // try {
-  //   const newIssue = await jiraClient.issues.createIssue({
-  //     fields: {
-  //       summary: "Issue from the script",
-  //       issuetype: {
-  //         name: jiraIssueName,
-  //       },
-  //       project: { key: jiraProjectId },
-  //       description: fnTranslate(issue.body),
-  //     },
-  //   });
-  // } catch (error) {}
+  try {
+    const newIssue = await jiraClient.issues.createIssue({
+      fields: {
+        summary: issue.title,
+        issuetype: {
+          name: core.getInput("JIRA_ISSUE_NAME"),
+        },
+        project: { key: core.getInput("JIRA_PROJECT_ID") },
+        description: fnTranslate(issue.body),
+      },
+    });
+
+    console.log(newIssue);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 run();
