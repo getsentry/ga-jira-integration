@@ -75298,7 +75298,7 @@ async function run() {
   // });
 
   console.log("--------------------");
-  console.log(issue.body);
+  console.log(fnTranslate(mdEscape(issue.body)));
   console.log("--------------------");
 
   try {
