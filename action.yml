@@ -9,6 +9,9 @@ inputs:
   ON_LABEL:
     decription: "GitHub label"
     required: true
+  JIRA_API_HOST:
+    decription: "JIRA API host"
+    required: true
   JIRA_API_TOKEN:
     decription: "JIRA API token"
     required: true

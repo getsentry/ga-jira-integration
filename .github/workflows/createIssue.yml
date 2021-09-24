@@ -12,3 +12,9 @@ jobs:
       - uses: ./
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          JIRA_API_HOST: ${{secrets.JIRA_API_HOST}}
+          JIRA_API_TOKEN: ${{secrets.JIRA_API_TOKEN}}
+          JIRA_EMAIL: ${{secrets.JIRA_EMAIL}}
+          JIRA_PROJECT_ID: ${{secrets.JIRA_PROJECT_ID}}
+          after-jira-issue-message: |-
+            We are prioritizing this issue in our development worklog
