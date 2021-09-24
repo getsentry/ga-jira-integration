@@ -75263,9 +75263,9 @@ async function createIssueInJIRA() {
     return;
   }
 
-  const descriptionBody = `${issue.body}
+  const descriptionBody = `View ${issue.title} on [GitHub](${issue.html_url})
 ---
-View ${issue.title} on [GitHub](${issue.html_url})
+${issue.body}
 
 
   `;
@@ -75273,7 +75273,7 @@ View ${issue.title} on [GitHub](${issue.html_url})
   try {
     await jiraClient.issues.createIssue({
       fields: {
-        summary: issue.title,
+        summary: `[GH] ${issue.title}`,
         issuetype: {
           name: core.getInput("JIRA_ISSUE_NAME"),
         },
