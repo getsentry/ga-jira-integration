@@ -75248,10 +75248,8 @@ const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
 const octokit = github.getOctokit(GITHUB_TOKEN);
 const { issue } = github.context.payload;
 const hasLabel = issue.labels.find(
-  (label) => label.id === core.getInput("TRIGGER_LABEL")
+  (label) => label.name === core.getInput("TRIGGER_LABEL")
 );
-
-console.log(hasLabel, core.getInput("TRIGGER_LABEL"), issue.labels, issue);
 
 const jiraClient = new Version3Client({
   host: core.getInput("JIRA_API_HOST"),
