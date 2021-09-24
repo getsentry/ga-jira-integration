@@ -19,7 +19,7 @@ jobs:
   createIssue:
     runs-on: ubuntu-latest
     steps:
-      - uses: vladanpaunovic/ga-jira-integration@main
+      - uses: getsentry/ga-jira-integration@main
         with:
           JIRA_API_HOST: ${{secrets.JIRA_API_HOST}}
           JIRA_API_TOKEN: ${{secrets.JIRA_API_TOKEN}}
@@ -46,4 +46,4 @@ This is a list of parameters used in your `.yml` file. All parameters are requir
 
 ## Contributing
 
-Feel free to contribute or submit bugs [here](https://github.com/vladanpaunovic/ga-jira-integration/issues).
+Feel free to contribute or submit bugs [here](https://github.com/getsentry/ga-jira-integration/issues).
