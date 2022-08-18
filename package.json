@@ -10,7 +10,7 @@
     "dev-start": "ncc run dist/index.js"
   },
   "dependencies": {
-    "@actions/core": "^1.5.0",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^5.0.0",
     "@vercel/ncc": "^0.31.1",
     "jira.js": "^2.6.3",
